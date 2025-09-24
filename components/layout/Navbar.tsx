@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect,  useState } from "react";
 import { ChevronRight, Search, Menu, X } from "lucide-react";
 import Logo from "../Logo";
 import { Sheet } from "@/components/ui/sheet";
