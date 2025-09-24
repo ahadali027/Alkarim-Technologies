@@ -13,7 +13,7 @@ export default function SectionWrapper({
   className,
 }: SectionWrapperProps) {
   return (
-    <div className={clsx("max-w-[95rem] px-7 mx-auto", className)}>
+    <div className={clsx("max-w-[95rem] px-5 mx-auto", className)}>
       {children}
     </div>
   );

@@ -48,36 +48,54 @@ export default function Portfolio() {
         </Button>
       </SectionWrapper>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 ">
-        {portfolioItems.map((item, idx) => (
-          <div
-            key={idx}
-            className="relative h-[300px] md:h-[350px] lg:h-[400px] group overflow-hidden "
-          >
-            <Image
-              src={item.image}
-              alt={item.title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
+      <SectionWrapper>
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          {portfolioItems.map((item, idx) => {
+            // Rounded corner logic
+            const roundedClasses =
+              idx === 0
+                ? "md:rounded-tl-lg rounded-none"
+                : idx === 1
+                ? "md:rounded-tr-lg rounded-none"
+                : idx === 2
+                ? "md:rounded-bl-lg rounded-none"
+                : idx === 3
+                ? "md:rounded-br-lg rounded-none"
+                : "";
 
-            <div className="absolute  bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-10">
-              <div className="max-w-lg border-l-4 group-hover:border-l-8 px-5 duration-700">
-                <Link
-                  href={"/"}
-                  className="text-white font-bold md:text-2xl text-xl flex items-center group-hover:underline  gap-5"
-                >
-                  {item.title}
-                  <span className="hidden group-hover:inline-block">
-                    <ArrowRightIcon />
-                  </span>
-                </Link>
-                <p className="text-gray-200 md:text-lg text-sm mt-2">{item.desc}</p>
+            return (
+              <div
+                key={idx}
+                className={`relative h-[300px] md:h-[350px] lg:h-[400px] group overflow-hidden ${roundedClasses}`}
+              >
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-10">
+                  <div className="max-w-lg border-l-4 group-hover:border-l-8 px-5 duration-700">
+                    <Link
+                      href={"/"}
+                      className="text-white font-bold md:text-2xl text-xl flex items-center group-hover:underline gap-5"
+                    >
+                      {item.title}
+                      <span className="hidden group-hover:inline-block">
+                        <ArrowRightIcon />
+                      </span>
+                    </Link>
+                    <p className="text-gray-200 md:text-lg text-sm mt-2">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
-      </div>
+            );
+          })}
+        </div>
+      </SectionWrapper>
     </section>
   );
 }

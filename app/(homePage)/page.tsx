@@ -1,6 +1,7 @@
 "use client";
 
 import HeroSection from "@/components/homeComponent/HeroSection";
+import OurCustomerMoments from "@/components/homeComponent/OurCustomerMoments";
 import Portfolio from "@/components/homeComponent/OurPortfolioSection";
 import PerfromanceOverViewSection from "@/components/homeComponent/PerfromanceOverViewSection";
 import Value from "@/components/homeComponent/Value";
@@ -14,6 +15,7 @@ export default function Page() {
       <PerfromanceOverViewSection />
       <Portfolio />
       <Value />
+      <OurCustomerMoments/>
       
     </div>
   );

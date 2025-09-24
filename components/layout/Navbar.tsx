@@ -24,26 +24,18 @@ const navItems: NavItem[] = [
     children: [
       {
         label: "Overview",
-        href: "/about/overview",
-        children: [
-          { label: "Mission", href: "/about/overview/mission" },
-          { label: "Vision", href: "/about/overview/vision" },
-        ],
+        href: "/about",
       },
-      { label: "Purpose & strategy", href: "/about/purpose" },
+      { label: "Purpose & strategy", href: "/about/ourStrategy" },
       {
         label: "Leadership",
         href: "/about/leadership",
-        children: [
-          { label: "Board", href: "/about/leadership/board" },
-          { label: "Management", href: "/about/leadership/management" },
-        ],
+        // children: [
+        //   { label: "Board", href: "/about/leadership/board" },
+        //   { label: "Management", href: "/about/leadership/management" },
+        // ],
       },
       { label: "History", href: "/about/history" },
-      { label: "Annual Report", href: "/about/report" },
-      { label: "Governance", href: "/about/governance" },
-      { label: "Our asset map", href: "/about/assets" },
-      { label: "FAQs", href: "/about/faqs" },
     ],
   },
   {
@@ -177,7 +169,7 @@ export default function Navbar() {
                       <Link
                         key={g.label}
                         href={g.href ?? "#"}
-                        className="flex items-center justify-between rounded-md px-3 py-2 text-gray-800 hover:bg-gray-100"
+                        className="flex items-center justify-between rounded-md px-5 py-2 text-gray-800 hover:bg-gray-100"
                       >
                         {g.label}
                         <ChevronRight size={16} className="text-gray-400" />
@@ -190,7 +182,7 @@ export default function Navbar() {
                 <Link
                   key={child.label}
                   href={child.href ?? "#"}
-                  className="flex items-center justify-between rounded-md  py-3 text-gray-800 hover:bg-gray-100"
+                  className="flex items-center justify-between rounded-md px-3 py-3 text-gray-800 hover:bg-gray-100"
                 >
                   {child.label}
                   <ChevronRight size={18} className="text-gray-400" />
