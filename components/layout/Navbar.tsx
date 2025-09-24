@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect,  useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronRight, Search, Menu, X } from "lucide-react";
 import Logo from "../Logo";
 import { Sheet } from "@/components/ui/sheet";
@@ -121,24 +121,24 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className=" bg-white shadow-sm sticky top-0 z-50">
-      <nav className="container mx-auto flex items-center justify-between px-4 md:px-6 py-3 md:py-5">
+    <header className=" bg-white shadow-sm  z-50">
+      <nav className="container mx-auto flex items-center justify-between px-3 gap-5 py-3 md:py-5">
         <Logo />
 
-        <ul className="hidden lg:flex items-center lg:gap-8  gap-5 ">
+        <ul className="hidden md:flex items-center lg:gap-8 z-50 gap-4 ">
           {navItems.map((item) => (
             <li key={item.label}>
               {item.children ? (
                 <button
                   onClick={() => openSidebar(item)}
-                  className=" py-2 font-medium text-gray-700 hover:text-black cursor-pointer rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className=" py-2 lg:text-base text-sm text-gray-700 hover:text-black cursor-pointer rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                 >
                   {item.label}
                 </button>
               ) : (
                 <Link
                   href={item.href ?? "#"}
-                  className="font-medium text-gray-700 hover:text-black cursor-pointer rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="lg:text-base text-sm text-gray-700 hover:text-black cursor-pointer rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                 >
                   {item.label}
                 </Link>
@@ -154,51 +154,52 @@ export default function Navbar() {
         </ul>
 
         <button
-          className="lg:hidden rounded p-2 text-gray-700 hover:bg-gray-100"
+          className="md:hidden rounded p-2 text-gray-700 hover:bg-gray-100"
           onClick={() => setMobileOpen(true)}
         >
           <Menu size={24} />
         </button>
       </nav>
-
-      <Sheet
-        open={!!(sidebarOpen && activeMenu)}
-        onOpenChange={setSidebarOpen}
-        side="left"
-      >
-        <div className="space-y-2 text-black">
-          <p className="text-2xl font-semibold mb-5">{activeMenu?.label} </p>
-          {activeMenu?.children?.map((child) => {
-            const hasGrandChildren = !!child.children?.length;
-            if (hasGrandChildren) {
+      <div className="md:block hidden">
+        <Sheet
+          open={!!(sidebarOpen && activeMenu)}
+          onOpenChange={setSidebarOpen}
+          side="left"
+        >
+          <div className="space-y-2 text-black ">
+            <p className="text-2xl font-semibold mb-5">{activeMenu?.label} </p>
+            {activeMenu?.children?.map((child) => {
+              const hasGrandChildren = !!child.children?.length;
+              if (hasGrandChildren) {
+                return (
+                  <AccordionItem key={child.label} title={child.label}>
+                    {child.children?.map((g) => (
+                      <Link
+                        key={g.label}
+                        href={g.href ?? "#"}
+                        className="flex items-center justify-between rounded-md px-3 py-2 text-gray-800 hover:bg-gray-100"
+                      >
+                        {g.label}
+                        <ChevronRight size={16} className="text-gray-400" />
+                      </Link>
+                    ))}
+                  </AccordionItem>
+                );
+              }
               return (
-                <AccordionItem key={child.label} title={child.label}>
-                  {child.children?.map((g) => (
-                    <Link
-                      key={g.label}
-                      href={g.href ?? "#"}
-                      className="flex items-center justify-between rounded-md px-3 py-2 text-gray-800 hover:bg-gray-100"
-                    >
-                      {g.label}
-                      <ChevronRight size={16} className="text-gray-400" />
-                    </Link>
-                  ))}
-                </AccordionItem>
+                <Link
+                  key={child.label}
+                  href={child.href ?? "#"}
+                  className="flex items-center justify-between rounded-md  py-3 text-gray-800 hover:bg-gray-100"
+                >
+                  {child.label}
+                  <ChevronRight size={18} className="text-gray-400" />
+                </Link>
               );
-            }
-            return (
-              <Link
-                key={child.label}
-                href={child.href ?? "#"}
-                className="flex items-center justify-between rounded-md  py-3 text-gray-800 hover:bg-gray-100"
-              >
-                {child.label}
-                <ChevronRight size={18} className="text-gray-400" />
-              </Link>
-            );
-          })}
-        </div>
-      </Sheet>
+            })}
+          </div>
+        </Sheet>
+      </div>
 
       {mobileOpen && (
         <div className="fixed inset-0 z-50">

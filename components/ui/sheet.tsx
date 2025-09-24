@@ -15,6 +15,7 @@ interface SheetProps {
 export function Sheet({ open, onOpenChange, side = "left", title, children }: SheetProps) {
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onOpenChange(false);
     };
@@ -39,9 +40,9 @@ export function Sheet({ open, onOpenChange, side = "left", title, children }: Sh
   return (
     <AnimatePresence>
       {open && (
-        <div className="fixed inset-0 z-40" aria-modal="true" role="dialog">
+        <div className="fixed top-[27px] bottom-0 left-0 right-0 z-40" aria-modal="true" role="dialog">
           <motion.div
-            className="absolute inset-0 bg-black/40"
+            className="absolute top-16 bottom-0 left-0 right-0 h-full bg-black/40"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -49,7 +50,7 @@ export function Sheet({ open, onOpenChange, side = "left", title, children }: Sh
             onClick={() => onOpenChange(false)}
           />
           <motion.div
-            className={`absolute bg-white shadow-xl border-r md:border-l border-gray-200 p-6 overflow-y-auto md:rounded-r-xl ${sideClasses[side]}`}
+            className={`absolute bg-white shadow-xl border-r md:border-l border-gray-200 p-6 overflow-y-auto  ${sideClasses[side]}`}
             initial={{ x: side === "left" ? -320 : 320, y: side === "top" ? -320 : side === "bottom" ? 320 : 0 }}
             animate={{ x: 0, y: 0 }}
             exit={{ x: side === "left" ? -320 : 320, y: side === "top" ? -320 : side === "bottom" ? 320 : 0 }}
