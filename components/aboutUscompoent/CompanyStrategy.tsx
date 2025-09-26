@@ -1,7 +1,6 @@
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { Lightbulb, Users, Shield } from "lucide-react"; // Import Lucide icons
-import SectionWrapper from "../SectionWrapper";
 
 const techChallenges = [
   {
@@ -27,19 +26,19 @@ const techChallenges = [
 export default function TechCompanyStrategy() {
   return (
     <section className="w-full bg-white py-20">
-      <SectionWrapper className=" grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div>
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
             We focus on the industry&apos;s long-term challenges
           </h2>
-          <p className="text-lg text-gray-600 mb-8">
+          {/* <p className="text-lg text-gray-600 mb-8">
             At Al-Karim Technologies, our strategy is built on tackling the
             biggest challenges shaping the future of the tech industry. We
             combine innovation, inclusivity, and security to create impactful
             solutions that last.
-          </p>
+          </p> */}
 
-          <div className="space-y-6">
+          <div className="space-y-6 mt-10">
             {techChallenges.map((challenge, idx) => {
               const Icon = challenge.icon;
               return (
@@ -63,6 +62,7 @@ export default function TechCompanyStrategy() {
 
           <div className="mt-10">
             <Button
+            onClick={() => window.location.href = '/about/ourStrategy'}
               variant={"outline"}
               className="cursor-pointer bg-transparent hover:bg-gray-100"
             >
@@ -79,7 +79,7 @@ export default function TechCompanyStrategy() {
             className="object-cover rounded-2xl"
           />
         </div>
-      </SectionWrapper>
+      </div>
     </section>
   );
 }

@@ -39,7 +39,7 @@ export default function HeroSection() {
 
       <SectionWrapper className="absolute inset-0 z-20 flex flex-col items-start justify-center text-white ">
         <div>
-          <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl max-w-3xl font-semibold leading-snug">
+          <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl  max-w-3xl font-semibold leading-18 ">
             Lasting and shared prosperity for the nation
           </p>
           <div className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 max-w-[16rem] sm:max-w-[18rem]">

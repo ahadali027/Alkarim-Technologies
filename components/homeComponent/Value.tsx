@@ -55,7 +55,7 @@ function ValueCard({
 
 export default function Value() {
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-gray-50 mt-20">
       <SectionWrapper>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Side */}

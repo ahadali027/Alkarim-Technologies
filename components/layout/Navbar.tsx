@@ -30,10 +30,6 @@ const navItems: NavItem[] = [
       {
         label: "Leadership",
         href: "/about/leadership",
-        // children: [
-        //   { label: "Board", href: "/about/leadership/board" },
-        //   { label: "Management", href: "/about/leadership/management" },
-        // ],
       },
       { label: "History", href: "/about/history" },
     ],
@@ -41,36 +37,17 @@ const navItems: NavItem[] = [
   {
     label: "Sustainability",
     href: "/sustainability",
-    children: [
-      { label: "Our Strategy", href: "/sustainability/strategy" },
-      { label: "Reports", href: "/sustainability/reports" },
-    ],
   },
   {
     label: "Our business",
-    href: "/business",
-    children: [
-      { label: "Real Estate", href: "/business/real-estate" },
-      { label: "Marine", href: "/business/marine" },
-    ],
+    href: "/our-business",
   },
-  {
-    label: "Careers",
-    href: "/careers",
-    children: [
-      { label: "Opportunities", href: "/careers/opportunities" },
-      { label: "Life at Crown Estate", href: "/careers/life" },
-    ],
-  },
+
   {
     label: "News and Stories",
     href: "/news",
-    children: [
-      { label: "Press Releases", href: "/news/press" },
-      { label: "Blog", href: "/news/blog" },
-    ],
   },
-  { label: "Contact us", href: "/contact" },
+  { label: "Contact us", href: "/contact-us" },
 ];
 
 export default function Navbar() {
@@ -252,7 +229,7 @@ export default function Navbar() {
                           <Link
                             key={child.label}
                             href={child.href ?? "#"}
-                            className="flex items-center justify-between rounded-md px-3 py-3 text-gray-800 hover:bg-gray-100"
+                            className="flex items-center justify-between rounded-md px- py-3 text-gray-800 hover:bg-gray-100"
                             onClick={() => setMobileOpen(false)}
                           >
                             {child.label}
@@ -267,7 +244,7 @@ export default function Navbar() {
                   <Link
                     key={item.label}
                     href={item.href ?? "#"}
-                    className="block rounded-md px-3 py-3 font-semibold text-gray-800 hover:bg-gray-100"
+                    className="block rounded-md  py-3 font-semibold text-gray-800 hover:bg-gray-100"
                     onClick={() => setMobileOpen(false)}
                   >
                     {item.label}

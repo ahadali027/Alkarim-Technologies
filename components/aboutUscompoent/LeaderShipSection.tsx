@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const LeadershipSection = () => {
   return (
-    <section className="flex  flex-col-reverse lg:flex-row py-12 ">
+    <section className="flex  flex-col-reverse lg:flex-row pt-12 ">
       <div className="flex-1">
         <Image
           src="/leadership.jpg"
@@ -28,7 +28,7 @@ const LeadershipSection = () => {
             deliver value for our customers, partners and communities.
           </p>
           <a
-            href="/leadership"
+            href="/about/leadership"
             className="mt-10 sm:mt-12 lg:mt-14 text-base flex items-center gap-3 hover:underline font-semibold"
           >
             Meet our leadership team
